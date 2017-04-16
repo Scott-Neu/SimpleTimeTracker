@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTimeTracker", "SimpleTimeTracker.csproj", "{F68B742C-2FC5-4097-951D-8CBBDAD183DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTimeTracker.Ui", "SimpleTimeTracker.UI\SimpleTimeTracker.UI.csproj", "{F68B742C-2FC5-4097-951D-8CBBDAD183DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Core", "SimpleTimeTracker.Core\SimpleTimeTracker.Core.csproj", "{C1405005-AF86-49AC-B9FB-644E910E0DD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Data", "SimpleTimeTracker.Data\SimpleTimeTracker.Data.csproj", "{44723A78-922F-47CD-A11E-00B222FA518F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44723A78-922F-47CD-A11E-00B222FA518F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44723A78-922F-47CD-A11E-00B222FA518F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44723A78-922F-47CD-A11E-00B222FA518F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44723A78-922F-47CD-A11E-00B222FA518F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
