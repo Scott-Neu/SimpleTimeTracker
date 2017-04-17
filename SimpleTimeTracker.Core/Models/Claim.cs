@@ -6,9 +6,7 @@ namespace SimpleTimeTracker.Core.Models
 {
     public class Claim : ModelBase
     {
-        public virtual ApplicationUser ApplicationUser { get; set; }
-
-        [Required]
+        public Guid ApplicationUserId { get; set; }
         public ClaimType ClaimType { get; set; }
 
         public Claim()
