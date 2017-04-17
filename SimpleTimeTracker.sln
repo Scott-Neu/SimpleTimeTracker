@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Api", "Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.DataMigrations", "SimpleTimeTracker.DataMigrations\SimpleTimeTracker.DataMigrations.csproj", "{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Tests", "SimpleTimeTracker.Tests\SimpleTimeTracker.Tests.csproj", "{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

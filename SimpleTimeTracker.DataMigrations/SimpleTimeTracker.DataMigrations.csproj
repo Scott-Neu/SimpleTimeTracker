@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Migrations\Migration201704170835.cs" />
     <Compile Include="Migrations\Migration201704170919.cs" />
-    <Compile Include="Migrations\Migration201704170949.cs" />
+    <Compile Include="Migrations\Migration201704171033.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
