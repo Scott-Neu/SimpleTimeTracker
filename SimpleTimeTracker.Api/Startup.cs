@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace SimpleTimeTracker.Api
 {
-    public class Startup
+    public partial class Startup
     {
         public Startup(IHostingEnvironment env)
         {
@@ -23,6 +23,25 @@ namespace SimpleTimeTracker.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // override the unauthorized api hits from a redirect to a 401
+            //services.AddIdentity<User, Role>(identityOptions =>
+            //{
+            //    identityOptions.Cookies.ApplicationCookie.Events =
+            //        new CookieAuthenticationEvents
+            //        {
+            //            OnRedirectToLogin = context =>
+            //            {
+            //                if (context.Request.Path.StartsWithSegments("/api") &&
+            //            context.Response.StatusCode == (int)HttpStatusCode.OK)
+            //                    context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            //                else
+            //                    context.Response.Redirect(context.RedirectUri);
+
+            //                return Task.CompletedTask;
+            //            }
+            //        };
+            //});
+
             // Add framework services.
             services.AddMvc();
         }
@@ -32,6 +51,8 @@ namespace SimpleTimeTracker.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            ConfigureAuth(app);
 
             app.UseMvc();
         }
