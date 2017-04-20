@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SimpleTimeTracker.Api.Security;
+using SimpleTimeTracker.Core.Interfaces;
 using System;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -12,13 +13,13 @@ namespace SimpleTimeTracker.Api
 {
     public partial class Startup
     {
+        private IAuthenticationService _authenticationService;
 
-        private void ConfigureAuth(IApplicationBuilder app)
+        private void ConfigureAuth(IApplicationBuilder app, IAuthenticationService authenticationService)
         {
+            _authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
 
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("TokenAuthentication:SecretKey").Value));
-
-
             var tokenValidationParameters = new TokenValidationParameters
             {
                 // The signing key must match!
@@ -68,8 +69,9 @@ namespace SimpleTimeTracker.Api
 
         private Task<ClaimsIdentity> GetIdentity(string username, string password)
         {
-            // Don't do this in production, obviously!
-            if (username == "TEST" && password == "TEST123")
+            // look up the account by email
+            var user = _authenticationService.GetAuthenticatedUser(username, password).Result;
+            if (user != null)
             {
                 return Task.FromResult(new ClaimsIdentity(new GenericIdentity(username, "Token"), new Claim[] { }));
             }

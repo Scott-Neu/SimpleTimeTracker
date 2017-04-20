@@ -1,5 +1,6 @@
 ﻿using SimpleTimeTracker.Core.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace SimpleTimeTracker.Core.Models
 {
@@ -10,10 +11,11 @@ namespace SimpleTimeTracker.Core.Models
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Suffix { get; set; }
-        public DateTime HireDate { get; set; }
-        public DateTime? TermDate { get; set; }
+        public DateTimeOffset HireDate { get; set; }
+        public DateTimeOffset? TermDate { get; set; }
         public string Password { get; set; }
         public bool IsDefaultUser { get; set; }
+        public virtual List<Claim> Claims { get; set; }
 
         public ApplicationUser()
             : base()
@@ -30,6 +32,7 @@ namespace SimpleTimeTracker.Core.Models
         private void Initialize()
         {
             IsDefaultUser = false;
+            Claims = new List<Claim>();
         }
 
         public void SetPassword(string clearTextPassword)

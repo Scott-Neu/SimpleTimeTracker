@@ -15,7 +15,7 @@ namespace SimpleTimeTracker.DataMigrations.Migrations
             db.CreateTable("Claim")
                 .WithPrimaryKeyColumn("Id", DbType.Guid)
                 .WithNotNullableColumn("ApplicationUserId", DbType.Guid)
-                .WithNotNullableColumn("ClaimType", DbType.Int16)
+                .WithNotNullableColumn("ClaimType", DbType.Int32)
 
                 .WithNotNullableColumn("DateAdded", DbType.DateTimeOffset)
                 .WithNotNullableColumn("DateEdited", DbType.DateTimeOffset)

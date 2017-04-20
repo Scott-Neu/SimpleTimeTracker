@@ -1,6 +1,5 @@
 ﻿using SimpleTimeTracker.Core.Types;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace SimpleTimeTracker.Core.Models
 {
