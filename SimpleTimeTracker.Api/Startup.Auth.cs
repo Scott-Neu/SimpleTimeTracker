@@ -4,6 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using SimpleTimeTracker.Api.Security;
 using SimpleTimeTracker.Core.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
@@ -73,7 +76,16 @@ namespace SimpleTimeTracker.Api
             var user = _authenticationService.GetAuthenticatedUser(username, password).Result;
             if (user != null)
             {
-                return Task.FromResult(new ClaimsIdentity(new GenericIdentity(username, "Token"), new Claim[] { }));
+                var roles = string.Join(",", user.Claims.Where(i => i.IsActive).Select(i => i.ClaimType.ToString()).ToArray());
+                var claims = new Claim[]                
+                {
+                    new Claim("Id", user.Id.ToString()),
+                    new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+                    new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+                    new Claim("Roles", roles),
+                };
+                
+                return Task.FromResult(new ClaimsIdentity(new GenericIdentity(username, "Token"), claims ));
             }
 
             // Credentials are invalid, or account doesn't exist

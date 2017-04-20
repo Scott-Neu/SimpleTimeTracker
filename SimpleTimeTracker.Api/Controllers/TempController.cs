@@ -13,6 +13,8 @@ namespace SimpleTimeTracker.Api.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+
             return new string[] { "value1", "value2" };
         }
     }
