@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using SimpleTimeTracker.Core.DbContexts;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SimpleTimeTracker.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [Authorize]
-    public class TempController : Controller
+    public class TempController : ControllerBase
     {
+        public TempController(UserContext userContext)
+            : base (userContext)
+        { }
+
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
 
-            return new string[] { "value1", "value2" };
+            return new string[] { ApplicationUser.FirstName, this.UserId.ToString(), "value2" };
         }
     }
 }
