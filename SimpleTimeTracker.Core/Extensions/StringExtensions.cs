@@ -15,6 +15,16 @@ namespace SimpleTimeTracker.Core.Extensions
             return Guid.Empty;
         }
 
+        public static double ToDouble(this string value)
+        {
+            double result;
+            if (double.TryParse(value, out result))
+            {
+                return result;
+            }
+
+            return 0;
+        }
 
     }
 }

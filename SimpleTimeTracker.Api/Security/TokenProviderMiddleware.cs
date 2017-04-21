@@ -63,6 +63,15 @@ namespace SimpleTimeTracker.Api.Security
                 return;
             }
 
+            var response = await GenerateToken(identity, username);
+
+            // Serialize and return the response
+            context.Response.ContentType = "application/json";
+            await context.Response.WriteAsync(response);
+        }
+
+        public async Task<string> GenerateToken(ClaimsIdentity identity, string username)
+        {
             var now = DateTime.UtcNow;
 
             // Specifically add the jti (nonce), iat (issued timestamp), and sub (subject/user) claims.
@@ -92,8 +101,7 @@ namespace SimpleTimeTracker.Api.Security
             };
 
             // Serialize and return the response
-            context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(response, _serializerSettings));
+            return JsonConvert.SerializeObject(response, _serializerSettings);
         }
 
         private static void ThrowIfInvalidOptions(TokenProviderOptions options)

@@ -30,7 +30,7 @@ namespace SimpleTimeTracker.Api
             // register the IOC
             services.AddDbContext<UserContext>(o => o.UseSqlServer(Configuration.GetConnectionString("SimpleTimeTracker")));
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
-
+            services.AddSingleton<IConfiguration>(Configuration);
 
             // Add framework services.
             services.AddMvc();

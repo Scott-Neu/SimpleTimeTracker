@@ -4,13 +4,13 @@ using Microsoft.IdentityModel.Tokens;
 using SimpleTimeTracker.Api.Security;
 using SimpleTimeTracker.Core.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using SimpleTimeTracker.Core.Extensions;
 
 namespace SimpleTimeTracker.Api
 {
@@ -64,7 +64,8 @@ namespace SimpleTimeTracker.Api
                 Audience = Configuration.GetSection("TokenAuthentication:Audience").Value,
                 Issuer = Configuration.GetSection("TokenAuthentication:Issuer").Value,
                 SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256),
-                IdentityResolver = GetIdentity
+                IdentityResolver = GetIdentity,
+                Expiration = TimeSpan.FromSeconds(Configuration.GetSection("TokenAuthentication:ExpirationSeconds").Value.ToDouble())
             };
 
             app.UseMiddleware<TokenProviderMiddleware>(Options.Create(tokenProviderOptions));
