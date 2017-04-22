@@ -27,6 +27,15 @@ namespace SimpleTimeTracker.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // add the CORS policy
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
             // register the IOC
             services.AddDbContext<UserContext>(o => o.UseSqlServer(Configuration.GetConnectionString("SimpleTimeTracker")));
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
@@ -37,12 +46,15 @@ namespace SimpleTimeTracker.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IAuthenticationService authenticationServic)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IAuthenticationService authenticationService)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            ConfigureAuth(app, authenticationServic);
+            // apply the CORS policy
+            app.UseCors("CorsPolicy");
+
+            ConfigureAuth(app, authenticationService);
 
             app.UseMvc();
         }
