@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ef330f329c2eb5f4c722"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d4bd9091b7f5790ad5ef"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -5763,7 +5763,7 @@ var AuthService = (function () {
         return this.http.post(apiEndpoint, data)
             .map(function (response) {
             // login successful if there's a jwt token in the response
-            var token = response.json() && response.json().token;
+            var token = response.json() && response.json().access_token;
             if (token) {
                 // set token property
                 _this.token = token;
@@ -5791,7 +5791,7 @@ var AuthService = (function () {
     AuthService.prototype.loggedIn = function () {
         if (localStorage.getItem('currentUser')) {
             // logged in so return true
-            return angular2_jwt_1.tokenNotExpired();
+            return !new angular2_jwt_1.JwtHelper().isTokenExpired(this.token);
         }
         else {
             return false;
@@ -8141,7 +8141,7 @@ var LoginComponent = (function () {
         this.authService.login(this.model.username, this.model.password)
             .subscribe(function (result) {
             if (result === true) {
-                _this.router.navigate(['/']);
+                _this.router.navigate(['/home']);
             }
             else {
                 _this.error = 'Username or password is incorrect';
@@ -8188,7 +8188,7 @@ var AuthGuard = (function () {
         this.router = router;
     }
     AuthGuard.prototype.canActivate = function () {
-        // If user is not logged in we'll send them to the homepage 
+        // If user is not logged in we'll send them to the homepage
         if (!this.auth.loggedIn()) {
             this.router.navigate(['/login']);
             return false;

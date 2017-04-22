@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
-import { tokenNotExpired } from 'angular2-jwt';
+import { JwtHelper } from 'angular2-jwt';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -28,7 +28,7 @@ export class AuthService {
         return this.http.post(apiEndpoint, data)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                let token = response.json() && response.json().token;
+                let token = response.json() && response.json().access_token;
                 if (token) {
                     // set token property
                     this.token = token;
@@ -59,7 +59,8 @@ export class AuthService {
     loggedIn() {
         if (localStorage.getItem('currentUser')) {
             // logged in so return true
-            return tokenNotExpired();
+
+            return !new JwtHelper().isTokenExpired(this.token);
         } else {
             return false;
         }
