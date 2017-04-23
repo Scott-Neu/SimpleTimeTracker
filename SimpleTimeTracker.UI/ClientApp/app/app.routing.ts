@@ -10,9 +10,9 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'logout', component: LogoutComponent },
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'login', component: LoginComponent,  data: { title: 'Login' } },
+    { path: 'logout', component: LogoutComponent, data: { title: 'Logoff' } },
+    { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Simple Time Tracker' } },
 
     // remove
     { path: 'counter', component: CounterComponent, canActivate: [AuthGuard] },
