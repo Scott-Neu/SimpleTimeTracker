@@ -8,6 +8,7 @@ import { AuthGuard } from './services/auth.guard';
 // remove
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { TempDataComponent } from './components/tempData/tempdata.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent,  data: { title: 'Login' } },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Simple Time Tracker' } },
 
     // remove
+    { path: 'tempdata', component: TempDataComponent, canActivate: [AuthGuard] },
     { path: 'counter', component: CounterComponent, canActivate: [AuthGuard] },
     { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthGuard] },
 

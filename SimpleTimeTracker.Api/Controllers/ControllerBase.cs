@@ -10,7 +10,7 @@ using System.Linq;
 namespace SimpleTimeTracker.Api.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize("Bearer")]
     public abstract class ControllerBase : Controller
     {
         private UserContext _userContext;

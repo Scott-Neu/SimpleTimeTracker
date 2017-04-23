@@ -9,6 +9,7 @@ import { AppRouting } from './app.routing';
 // services
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
+import { AuthModule } from './services/auth.module';
 
 // components
 import { AppComponent } from './components/app/app.component';
@@ -18,6 +19,7 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { TempDataComponent } from './components/tempData/tempdata.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -26,7 +28,8 @@ import { CounterComponent } from './components/counter/counter.component';
         FormsModule,
         HttpModule,
         RouterModule,
-        AppRouting
+        AppRouting,
+        AuthModule,
     ],
     declarations: [
         AppComponent,
@@ -36,10 +39,12 @@ import { CounterComponent } from './components/counter/counter.component';
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
+        TempDataComponent,
     ],
     providers: [
         AuthService,
         AuthGuard,
+        
     ],
 })
 export class AppModule {

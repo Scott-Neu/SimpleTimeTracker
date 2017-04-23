@@ -19,7 +19,7 @@ export class AuthService {
     login(username: string, password: string): Observable<boolean> {
         //return Observable.of(false);
 
-        var apiEndpoint = environment.apiUrl + "/token"
+        var apiEndpoint = environment.apiUrl + "/token";
 
         let data = new URLSearchParams();
         data.append('username', username);
