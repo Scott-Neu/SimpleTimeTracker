@@ -13,6 +13,7 @@ import { AuthGuard } from './services/auth.guard';
 // components
 import { AppComponent } from './components/app/app.component';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
@@ -30,6 +31,7 @@ import { CounterComponent } from './components/counter/counter.component';
     declarations: [
         AppComponent,
         LoginComponent,
+        LogoutComponent,
         HomeComponent,
         NavMenuComponent,
         CounterComponent,
@@ -37,7 +39,7 @@ import { CounterComponent } from './components/counter/counter.component';
     ],
     providers: [
         AuthService,
-        AuthGuard
+        AuthGuard,
     ],
 })
 export class AppModule {

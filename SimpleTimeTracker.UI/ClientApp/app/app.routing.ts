@@ -1,6 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './services/auth.guard';
 
@@ -10,6 +11,7 @@ import { CounterComponent } from './components/counter/counter.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
+    { path: 'logout', component: LogoutComponent },
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
 
     // remove
