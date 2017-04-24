@@ -28,6 +28,11 @@
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/profile']">
+                        <span class='glyphicon glyphicon-user'></span> Profile ( {{ userModel.FirstName }} )
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/logout']">
                         <span class='glyphicon glyphicon-off'></span> Logoff
                     </a>
