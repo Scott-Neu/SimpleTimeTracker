@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppRouting } from './app.routing';
 
 // services
+import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { AuthModule } from './services/auth.module';
@@ -42,9 +43,9 @@ import { TempDataComponent } from './components/tempData/tempdata.component';
         TempDataComponent,
     ],
     providers: [
+        UserService,
         AuthService,
         AuthGuard,
-        
     ],
 })
 export class AppModule {

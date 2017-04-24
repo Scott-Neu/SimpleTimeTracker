@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
 import { environment } from '../../enviroments/enviroment';
+import { UserService } from '../../services/user.service';
+import { UserModel } from '../../models/user.model';
 
 @Component({
     selector: 'tempdata',
@@ -8,8 +10,13 @@ import { environment } from '../../enviroments/enviroment';
 })
 export class TempDataComponent {
     public values: string[];
+    public userModel: UserModel;
 
-    constructor(private authHttp: AuthHttp) {
+    constructor(private authHttp: AuthHttp, private userService: UserService) {
+        this.userModel = userService.currentUser;
+        console.log(this.userModel.Roles);
+        console.log(this.userModel.isSiteAdmin());
+
         var apiEndpoint = environment.apiUrl + "/temp";
 
         authHttp.get(apiEndpoint).subscribe(result => {
