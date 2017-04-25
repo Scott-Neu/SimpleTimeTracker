@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../enviroments/enviroment';
 import { UserService } from '../../services/user.service';
 import { UserModel } from '../../models/user.model';
+import { deserialize } from "serializer.ts/Serializer"; //https://www.npmjs.com/package/serializer.ts
 
 @Component({
     selector: 'employees',
@@ -26,43 +27,13 @@ export class EmployeesComponent {
         {
             var apiEndpoint = environment.apiUrl + "/user";
 
-            //authHttp.get(apiEndpoint)
-            //    .map(res => {
-            //        debugger;
-            //        res.json() as UsersViewModel[];
-            //    })
-            //    .subscribe(result => {
-            //        debugger;
-            //        //var yyy = Object.assign(new Array<UsersViewModel>(), result());
-            //        this.employees = result;
-            //    });
-
-            //authHttp.get(apiEndpoint)
-            //    .subscribe(result => {
-            //    debugger;
-            //    var xxx = result.json()
-            //    var yyy = Object.assign(new Array<UsersViewModel>(), result.json());
-
-            //    this.employees = Object.assign(new Array<UsersViewModel>(), result.json());
-
-            //    this.employees = result.json() as UsersViewModel[];
-            //});
-
-
             authHttp.get(apiEndpoint)
                 .map(response => response.json())
                 //.do(data => console.log(data))
                 .subscribe(result => {
-                    var xxx = result;
-                    var yyy = Object.assign(new Array<UsersViewModel>(), result);
-                    this.employees = result;
-                    console.log(yyy[0].getId());
+                    this.employees = deserialize<UsersViewModel[]>(UsersViewModel, result);
+                    debugger;
                 });
-                //.do(data => console.log(data)); //debug to console
-                //.subscribe(result => this.employees = result);
-                //.catch(this.handleError);
-
-            //Object.assign(new Foo(), JSON.parse(fooJson));
         }
     }
 }
@@ -75,8 +46,4 @@ export class UsersViewModel {
     public lastName: string;
     public suffix: string;
     public isActive: boolean;
-
-    getId(): string {
-        return this.id;
-    }
 }
