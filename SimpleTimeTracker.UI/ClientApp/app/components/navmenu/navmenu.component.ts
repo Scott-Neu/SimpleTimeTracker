@@ -8,9 +8,9 @@ import { UserModel } from '../../models/user.model';
     styleUrls: ['./navmenu.component.css']
 })
 export class NavMenuComponent {
-    public userModel: UserModel;
+    public currentUser: UserModel;
 
     constructor(private userService: UserService) {
-        this.userModel = userService.currentUser;
+        this.currentUser = userService.currentUser;
     }
 }

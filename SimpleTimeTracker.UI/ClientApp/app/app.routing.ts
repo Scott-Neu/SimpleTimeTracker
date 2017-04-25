@@ -1,9 +1,10 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './services/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './components/home/home.component';
-import { AuthGuard } from './services/auth.guard';
+import { EmployeesComponent } from './components/admin/employees.component';
 
 // remove
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent,  data: { title: 'Login' } },
     { path: 'logout', component: LogoutComponent, data: { title: 'Logoff' } },
     { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Simple Time Tracker' } },
+    { path: 'employees', component: EmployeesComponent, canActivate: [AuthGuard], data: { title: 'Employees' } },
 
     // remove
     { path: 'tempdata', component: TempDataComponent, canActivate: [AuthGuard] },

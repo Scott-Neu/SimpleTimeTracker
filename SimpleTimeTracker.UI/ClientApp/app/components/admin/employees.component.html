@@ -1,0 +1,22 @@
+﻿<h1>Employees</h1>
+
+<p *ngIf="!employees"><em>Loading...</em></p>
+
+<table class='table' *ngIf="employees">
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Email Address</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{ employee.lastName }}</td>
+            <td>{{ employee.firstName }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.isActive }}</td>
+        </tr>
+    </tbody>
+</table>

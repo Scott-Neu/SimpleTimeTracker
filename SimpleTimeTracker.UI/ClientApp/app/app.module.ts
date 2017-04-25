@@ -18,6 +18,9 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
+import { EmployeesComponent } from './components/admin/employees.component';
+
+
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { TempDataComponent } from './components/tempData/tempdata.component';
@@ -36,8 +39,9 @@ import { TempDataComponent } from './components/tempData/tempdata.component';
         AppComponent,
         LoginComponent,
         LogoutComponent,
-        HomeComponent,
         NavMenuComponent,
+        HomeComponent,
+        EmployeesComponent,
         CounterComponent,
         FetchDataComponent,
         TempDataComponent,
