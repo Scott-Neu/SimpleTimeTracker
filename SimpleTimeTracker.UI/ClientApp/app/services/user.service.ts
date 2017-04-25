@@ -1,5 +1,4 @@
 ﻿import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
 
 @Injectable()
@@ -15,14 +14,21 @@ export class UserService {
         }
     }
 
-    public setCurrentUser(decyptedJwtToken: any): void {
+    public setCurrentUserByToken(decyptedJwtToken: any): void {
         this.currentUser = new UserModel();
+        this.currentUser.Id = decyptedJwtToken.Id;
         this.currentUser.FirstName = decyptedJwtToken.given_name;
         this.currentUser.LastName = decyptedJwtToken.family_name;
         this.currentUser.Email = decyptedJwtToken.sub;
+        this.currentUser.IsActive = true;
         this.currentUser.Roles = decyptedJwtToken.Roles;
         
         localStorage.setItem(this.storename, JSON.stringify(this.currentUser));
+    }
+
+    public setCurrentUserByModel(user: UserModel): void {
+
+        localStorage.setItem(this.storename, JSON.stringify(user));
     }
 
     public removeCurrentUser(): void {
