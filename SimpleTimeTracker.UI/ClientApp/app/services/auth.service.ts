@@ -38,7 +38,7 @@ export class AuthService {
                     localStorage.setItem('token', JSON.stringify({ username: username, token: token }));
 
                     // put the user into the user service
-                    this.userService.setCurrentUser(new JwtHelper().decodeToken(token));
+                    this.userService.setCurrentUserByToken(new JwtHelper().decodeToken(token));
                     
                     // return true to indicate successful login
                     return true;

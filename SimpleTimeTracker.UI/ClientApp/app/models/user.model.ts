@@ -1,17 +1,15 @@
 ﻿export class UserModel {
+    Id: string;
     FirstName: string;
+    MiddleName: string;
     LastName: string;
+    Suffix: string;
     Email: string;
+    HireDate: Date;
+    TermDate: Date;
+    Password: string;
+    IsActive: boolean;
     Roles: string[];
-
-    //constructor() { }
-
-    //constructor(token: string) {
-    //    this.FirstName = token.given_name;
-    //    this.LastName = token.family_name;
-    //    this.Email = token.sub;
-    //    this.Roles = token.Roles;
-    //}
 
     isSiteAdmin(): boolean {
         return (this.Roles.indexOf("SiteAdmin") > -1);

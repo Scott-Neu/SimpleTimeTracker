@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimpleTimeTracker.Core.DbContexts;
@@ -11,6 +12,7 @@ namespace SimpleTimeTracker.Api.Controllers
 {
     [Route("api/[controller]")]
     [Authorize("Bearer")]
+    [EnableCors("CorsPolicy")]
     public abstract class ControllerBase : Controller
     {
         private UserContext _userContext;

@@ -27,9 +27,14 @@
                         <span class='glyphicon glyphicon-th-list'></span> Temp data
                     </a>
                 </li>
+                <li [routerLinkActive]="['link-active']" *ngIf="currentUser.isUserAdmin()" >
+                    <a [routerLink]="['/employees']">
+                        <span class='glyphicon glyphicon-th-list'></span> Employees
+                    </a>
+                </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/profile']">
-                        <span class='glyphicon glyphicon-user'></span> Profile ( {{ userModel.FirstName }} )
+                        <span class='glyphicon glyphicon-user'></span> Profile ( {{ currentUser.FirstName }} )
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
