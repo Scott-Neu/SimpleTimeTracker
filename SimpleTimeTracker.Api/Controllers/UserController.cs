@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using AutoMapper;
 using SimpleTimeTracker.Api.ViewModels;
+using System.Linq;
 
 namespace SimpleTimeTracker.Api.Controllers
 {
@@ -24,6 +25,9 @@ namespace SimpleTimeTracker.Api.Controllers
         public async Task<IEnumerable<UsersViewModel>> Get()
         {
             var users = await _userContext.ApplicationUsers
+                .OrderByDescending(o => o.IsActive)
+                .ThenBy(o => o.LastName)
+                .ThenBy(o => o.FirstName)
                 .AsNoTracking()
                 .ToListAsync();
 

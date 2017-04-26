@@ -29,10 +29,8 @@ export class EmployeesComponent {
 
             authHttp.get(apiEndpoint)
                 .map(response => response.json())
-                //.do(data => console.log(data))
                 .subscribe(result => {
                     this.employees = deserialize<UsersViewModel[]>(UsersViewModel, result);
-                    debugger;
                 });
         }
     }
