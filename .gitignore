@@ -26,6 +26,11 @@ Bin/
 obj/
 Obj/
 
+# compiled output
+/dist
+/tmp
+/out-tsc
+
 # Visual Studio 2015 cache/options directory
 .vs/
 /wwwroot/dist/**
@@ -244,3 +249,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+SimpleTimeTracker.UI/ClientApp/dist/main-server.js
+SimpleTimeTracker.UI/wwwroot/dist/main-client.js
+SimpleTimeTracker.UI/wwwroot/dist/main-client.js.map

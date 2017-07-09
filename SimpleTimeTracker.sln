@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTimeTracker.UI", "SimpleTimeTracker.UI\SimpleTimeTracker.UI.csproj", "{F68B742C-2FC5-4097-951D-8CBBDAD183DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Core", "SimpleTimeTracker.Core\SimpleTimeTracker.Core.csproj", "{C1405005-AF86-49AC-B9FB-644E910E0DD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Api", "SimpleTimeTracker.Api\SimpleTimeTracker.Api.csproj", "{18EF890E-7381-45E7-9B37-689B02FC4DAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.DataMigrations", "SimpleTimeTracker.DataMigrations\SimpleTimeTracker.DataMigrations.csproj", "{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTimeTracker.Tests", "SimpleTimeTracker.Tests\SimpleTimeTracker.Tests.csproj", "{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68B742C-2FC5-4097-951D-8CBBDAD183DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1405005-AF86-49AC-B9FB-644E910E0DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18EF890E-7381-45E7-9B37-689B02FC4DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18EF890E-7381-45E7-9B37-689B02FC4DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18EF890E-7381-45E7-9B37-689B02FC4DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18EF890E-7381-45E7-9B37-689B02FC4DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B09CC17C-16CA-4AC7-86D7-43767FEBAC30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E85BFD-2EBA-4976-93BB-2E9FC1DB3124}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
